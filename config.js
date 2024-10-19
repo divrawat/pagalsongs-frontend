@@ -1,8 +1,8 @@
 
-export const DOMAIN = 'http://localhost:3000';
+// export const DOMAIN = 'http://localhost:3000';
 // export const BACKEND_DOMAIN = 'http://localhost:8000';
 
-// export const DOMAIN = 'https://www.pagalsongs.online';
+export const DOMAIN = 'https://www.pagalsongs.online';
 export const BACKEND_DOMAIN = 'https://pagalsongs-backend.vercel.app'
 
 
