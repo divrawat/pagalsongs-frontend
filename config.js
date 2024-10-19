@@ -8,7 +8,7 @@ export const BACKEND_DOMAIN = 'https://pagalsongs-backend.vercel.app'
 
 
 export const DOMAIN_NAME = 'pagalsongs.online';
-export const R2_SUBDOMAIN = "https://pagalsongs.online";
+export const R2_SUBDOMAIN = "https://content.pagalsongs.online";
 export const DISQUS_SHORTNAME = "my-cms-7";
 
 

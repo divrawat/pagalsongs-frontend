@@ -21,7 +21,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
 import { GetSingleSong } from '@/actions/songs';
-import { DOMAIN, APP_NAME, NOT_FOUND_IMAGE, APP_LOGO, R2_SUBDOMAIN } from '@/config';
+import { DOMAIN, APP_NAME, NOT_FOUND_IMAGE, APP_LOGO, R2_SUBDOMAIN, BACKEND_DOMAIN } from '@/config';
 import { FaHome } from "react-icons/fa";
 import { Rubik } from '@next/font/google';
 import { AiFillChrome } from "react-icons/ai";
@@ -228,8 +228,9 @@ const SongPage = ({ errorcode, response }) => {
                     <div className='flex justify-center flex-wrap gap-10 mt-10'>
                         {downloadOptions.map((option, index) => (
                             <div key={index} className='hover:scale-110 transition-transform'>
-                                <a href={`${R2_SUBDOMAIN}/song-audio/${song?.slug}-${option.qualityNumber}.mp3`}
-                                    download="00.mp3"
+                                <a
+                                    // href={`${R2_SUBDOMAIN}/song-audio/${song?.slug}-${option.qualityNumber}.mp3`}
+                                    href={`${BACKEND_DOMAIN}/api/download/${song?.slug}/${option.qualityNumber}/${song?.Name}`}
                                     className={`${roboto2.className} bg-[#3b98bd] text-white  p-3 text-[12px] rounded-md`}>
                                     {option.size ? `${option.quality} - ${option.size}` : option.quality}
                                 </a>
