@@ -8,7 +8,7 @@ export const BACKEND_DOMAIN = 'https://pagalsongs-backend.vercel.app'
 
 
 export const DOMAIN_NAME = 'pagalsongs.online';
-export const IMAGES_SUBDOMAIN = "https://photos.pagalsongs.online";
+export const R2_SUBDOMAIN = "https://pagalsongs.online";
 export const DISQUS_SHORTNAME = "my-cms-7";
 
 
@@ -16,8 +16,8 @@ export const APP_NAME = 'Pagal World Songs';
 export const NavbarName = "Pagal World Songs";
 
 export const APP_LOGO = `${DOMAIN}/logo.png`;
-export const NOT_FOUND_IMAGE = `${IMAGES_SUBDOMAIN}/public/404.webp`;
-export const FAVICON = `${IMAGES_SUBDOMAIN}/public/favicon.png`;
+export const NOT_FOUND_IMAGE = `${R2_SUBDOMAIN}/public/404.webp`;
+export const FAVICON = `${R2_SUBDOMAIN}/public/favicon.png`;
 
 export const navLinks = [
     { text: 'Rap', href: `${DOMAIN}/category/rap?page=1` },

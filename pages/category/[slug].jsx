@@ -35,7 +35,7 @@ export async function getServerSideProps({ query, res }) {
 
 import Head from 'next/head';
 import { fetchSongsByCategory } from '@/actions/songs';
-import { DOMAIN, APP_NAME, NOT_FOUND_IMAGE, APP_LOGO, IMAGES_SUBDOMAIN, DOMAIN_NAME } from '@/config';
+import { DOMAIN, APP_NAME, NOT_FOUND_IMAGE, APP_LOGO, DOMAIN_NAME } from '@/config';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
@@ -159,7 +159,7 @@ const Category = ({ errorCode, songs, category, mangas, query, totalCount }) => 
                                 <div><Link prefetch={false} href={`${DOMAIN}`}>Home</Link></div>
                             </div>
 
-                            <div>{`-`}</div>
+                            <div>{`>`}</div>
 
                             <div><Link prefetch={false} href={`${DOMAIN}/categories/${slug}?page=${currentPage}`}>{`New ${capitalizeFirstLetter(slug)} Songs Download Mp3`}</Link></div>
                         </div>

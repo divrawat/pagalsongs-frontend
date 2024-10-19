@@ -2,7 +2,7 @@ import { SearchSongs } from "@/actions/songs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { DOMAIN } from "@/config";
+import { DOMAIN, APP_NAME, R2_SUBDOMAIN } from "@/config";
 import { Rubik } from '@next/font/google';
 const roboto = Rubik({ subsets: ['latin'], weight: '800' });
 const roboto2 = Rubik({ subsets: ['latin'], weight: '600' });
@@ -29,28 +29,7 @@ const SearchPage = ({ songs, totalCount, page, errorCode, query }) => {
     };
 
 
-    if (errorCode) {
-        return (
-            <>
-                {head()}
-                <Navbar />
-                <form className="max-w-[700px] mx-auto px-5 mt-5" onSubmit={handleSubmit}>
-                    <label htmlFor='default-search' className="mb-2 text-sm font-medium  sr-only">Search</label>
-                    <div className="relative">
-                        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <svg className="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                            </svg>
-                        </div>
-                        <input autoComplete='off' value={query2} onChange={(e) => setQuery2(e.target.value)} placeholder="Search for a Singer or Song ..." type="search" id="default-search" className="block w-full p-4 ps-10 text-sm border outline-none border-gray-300 rounded-lg " required />
-                        <button type="submit" className="text-white absolute end-2.5 font-bold bottom-2.5 bg-[#2683a8] hover:scale-110 transition-transform rounded-lg text-sm px-4 py-2">Search</button>
-                    </div>
-                </form>
-                <h1 className="font-bold text-3xl text-center mt-10">{`404 Page or Songs not Found`}</h1>
-                <Footer />
-            </>
-        );
-    }
+
 
 
     const router = useRouter();
@@ -76,15 +55,17 @@ const SearchPage = ({ songs, totalCount, page, errorCode, query }) => {
 
 
 
+    const DESCRIPTION = ''
+
     const head = () => (
         <Head>
-            <title>{`New ${capitalizeFirstLetter(slug)} Songs Downlaod Mp3 Page ${page}`}</title>
+            <title>{`New ${capitalizedQuery} Songs Downlaod Mp3 Page ${page}`}</title>
             <meta name="description" content={DESCRIPTION} />
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
             <meta name="googlebot" content="noarchive" />
             <meta name="robots" content="noarchive" />
             <link rel="canonical" href={`${DOMAIN}/search/${slug}?page=${page}`} />
-            <meta property="og:title" content={`New ${capitalizeFirstLetter(slug)} Songs Downlaod Mp3 Page ${page}`} />
+            <meta property="og:title" content={`New ${capitalizedQuery} Songs Downlaod Mp3 Page ${page}`} />
             <meta property="og:description" content={DESCRIPTION} />
             <meta property="og:type" content="webiste" />
             <meta property="og:url" content={`${DOMAIN}/search/${slug}?page=${page}`} />
@@ -94,10 +75,34 @@ const SearchPage = ({ songs, totalCount, page, errorCode, query }) => {
     );
 
 
+    if (errorCode) {
+        return (
+            <>
+                {/* {head()} */}
+                <Navbar />
+                <form className="max-w-[700px] mx-auto px-5 mt-5" onSubmit={handleSubmit}>
+                    <label htmlFor='default-search' className="mb-2 text-sm font-medium  sr-only">Search</label>
+                    <div className="relative">
+                        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg className="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            </svg>
+                        </div>
+                        <input autoComplete='off' value={query2} onChange={(e) => setQuery2(e.target.value)} placeholder="Search for a Singer or Song ..." type="search" id="default-search" className="block w-full p-4 ps-10 text-sm border outline-none border-gray-300 rounded-lg " required />
+                        <button type="submit" className="text-white absolute end-2.5 font-bold bottom-2.5 bg-[#2683a8] hover:scale-110 transition-transform rounded-lg text-sm px-4 py-2">Search</button>
+                    </div>
+                </form>
+                <h1 className="font-bold text-3xl text-center mt-10">{`404 Page or Songs not Found`}</h1>
+                <Footer />
+            </>
+        );
+    }
+
 
     return (
         <div>
             <Navbar />
+            {head()}
 
             <form className="max-w-[700px] mx-auto px-5 mt-5" onSubmit={handleSubmit}>
                 <label htmlFor='default-search' className="mb-2 text-sm font-medium  sr-only">Search</label>
@@ -115,7 +120,7 @@ const SearchPage = ({ songs, totalCount, page, errorCode, query }) => {
 
 
 
-            <h1 className={`${roboto.className} text-center mt-5 text-2xl font-extrabold`}>{`New ${capitalizedQuery} Songs Download Mp3`}</h1>
+            <h1 className={`${roboto.className} text-center mt-5 text-2xl font-extrabold`}>{`${capitalizedQuery} Songs Download Mp3`}</h1>
             <p className="text-center my-3">{`${totalCount} ${capitalizedQuery} Songs Found`}</p>
 
 
@@ -128,7 +133,7 @@ const SearchPage = ({ songs, totalCount, page, errorCode, query }) => {
                     <div><Link prefetch={false} href={`${DOMAIN}`}>Home</Link></div>
                 </div>
 
-                <div>{`-`}</div>
+                <div>{`>`}</div>
 
                 <div><Link prefetch={false} href={`${DOMAIN}/search/${slug}?page=${page}`}>{`New ${capitalizedQuery} Songs Download Mp3`}</Link></div>
             </div>
@@ -144,7 +149,7 @@ const SearchPage = ({ songs, totalCount, page, errorCode, query }) => {
 
                                 <div className='flex gap-3 my-10'>
                                     <div className='w-[150px]'>
-                                        <img src="https://www.pagalworld.com.sb/siteuploads/thumb/sft145/72358_4.jpg" height={130} width={130} alt="" />
+                                        <img src={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} height={130} width={130} alt="" />
                                     </div>
 
                                     <div className='w-[150px]'>

@@ -21,7 +21,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
 import { GetSingleSong } from '@/actions/songs';
-import { DOMAIN, APP_NAME, NOT_FOUND_IMAGE, APP_LOGO, IMAGES_SUBDOMAIN } from '@/config';
+import { DOMAIN, APP_NAME, NOT_FOUND_IMAGE, APP_LOGO, R2_SUBDOMAIN } from '@/config';
 import { FaHome } from "react-icons/fa";
 import { Rubik } from '@next/font/google';
 import { AiFillChrome } from "react-icons/ai";
@@ -29,7 +29,7 @@ const roboto = Rubik({ subsets: ['latin'], weight: '800' });
 const roboto2 = Rubik({ subsets: ['latin'], weight: '600', });
 const roboto3 = Rubik({ subsets: ['latin'], weight: '300', });
 import dynamic from 'next/dynamic';
-const MyDynamicComp = dynamic(() => import('@/components/MyDynamicComp'), { ssr: false });
+// const MyDynamicComp = dynamic(() => import('@/components/MyDynamicComp'), { ssr: false });
 export const runtime = 'experimental-edge';
 
 
@@ -59,42 +59,32 @@ const SongPage = ({ errorcode, response }) => {
         );
     }
 
-    const DESCRIPTION = `Read ${song?.song?.name} ${song?.song?.type} online. ${song?.song?.description}`;
+    const DESCRIPTION = `${song?.Name} song download mp3 by ${song?.singer} in 120 Kbps, 320 Kbps quality. `;
 
 
     const head = () => (
         <Head>
-            <title>{`${song?.Name} Song Download`}</title>
+            <title>{`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps`}</title>
             <meta name="description" content={DESCRIPTION} />
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
             <meta name="googlebot" content="noarchive" />
             <meta property="og:locale" content="en_US" />
             <meta property="og:type" content="article" />
-            <link rel="canonical" href={`${DOMAIN}/song/`} />
-            <meta property="og:title" content={`${song?.song?.name} ${song?.song?.type}`} />
+            <link rel="canonical" href={`${DOMAIN}/${song?.slug}`} />
+            <meta property="og:title" content={`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps`} />
             <meta property="og:description" content={DESCRIPTION} />
             <meta property="og:type" content="webiste" />
-            <meta property="og:url" content={`${DOMAIN}/song/`} />
+            <meta property="og:url" content={`${DOMAIN}/${song?.slug}`} />
             <meta property="og:site_name" content={`${APP_NAME}`} />
-            <meta property="og:image" content={`${IMAGES_SUBDOMAIN}/${song?.song?.slug}/cover-image/1.webp`} />
-            <meta property="og:image:secure_url" content={`${IMAGES_SUBDOMAIN}/${song?.song?.slug}/cover-image/1.webp`} />
+            <meta property="og:image" content={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} />
+            <meta property="og:image:secure_url" content={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} />
             <meta property="og:image:type" content="image/webp" />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content={`${song?.song?.name} ${song?.song?.type}: ${APP_NAME}`} />
-            <meta name="twitter:description" content={DESCRIPTION} />
-            <meta name="twitter:site" content="@songchimp" />
-            <meta name="twitter:creator" content="@songchimp" />
-            <meta name="twitter:image" content={`${IMAGES_SUBDOMAIN}/${song?.song?.slug}/cover-image/1.webp`} />
-            <meta name="twitter:label1" content="Written by" />
-            <meta name="twitter:data1" content={`${APP_NAME}`} />
-            <meta name="twitter:label2" content="Time to read" />
-            <meta name="twitter:data2" content="1 minute" />
         </Head >
     );
 
-    let slug = song?.slug;
+    // let slug = song?.slug;
     // let cleanedSlug = slug.replace(/-?(download|mp3|song)-?/g, '').replace(/--/g, '-').replace(/^-|-$/g, '');
-    let cleanedSlug = slug.replace(/-?(download|mp3|song).*$/g, '').replace(/--/g, '-').replace(/^-|-$/g, '');
+    // let cleanedSlug = slug.replace(/-?(download|mp3|song).*$/g, '').replace(/--/g, '-').replace(/^-|-$/g, '');
 
     let downloadOptions = [];
 
@@ -127,7 +117,7 @@ const SongPage = ({ errorcode, response }) => {
 
             <main>
                 <article className='px-5'>
-                    <h1 className={`${roboto.className} text-[23px] px-2 font-bold tracking-wider text-center mt-5 mb-5`}>{`${song?.Name} Song Download Mp3`}</h1>
+                    <h1 className={`${roboto.className} text-[23px] px-2 font-bold tracking-wider text-center mt-5 mb-5`}>{`${song?.Name} Song Download Mp3 - 120 Kbps, 320 Kbps`}</h1>
 
                     <div className='flex justify-center text-[13px] px-4 flex-wrap items-center gap-3 mb-10 text-blue-600'>
                         <div className='flex items-center gap-2'>
@@ -144,7 +134,7 @@ const SongPage = ({ errorcode, response }) => {
 
                     <div className='md:flex justify-center gap-20'>
 
-                        <div><img src="https://www.pagalworld.com.sb/siteuploads/thumb/sft145/72358_4.jpg" alt="" /></div>
+                        <div><img src={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} alt={`${song?.Name} song cover`} /></div>
 
                         <div>
 
@@ -238,14 +228,10 @@ const SongPage = ({ errorcode, response }) => {
                     <div className='flex justify-center flex-wrap gap-10 mt-10'>
                         {downloadOptions.map((option, index) => (
                             <div key={index} className='hover:scale-110 transition-transform'>
-                                <a href={`${DOMAIN}/${cleanedSlug}-${option.qualityNumber}`}
+                                <a href={`${R2_SUBDOMAIN}/song-audio/${song?.slug}-${option.qualityNumber}.mp3`}
+                                    download="00.mp3"
                                     className={`${roboto2.className} bg-[#3b98bd] text-white  p-3 text-[12px] rounded-md`}>
-
-
-                                    {option.size
-                                        ? `${option.quality} - ${option.size}` // Display quality and size if available
-                                        : option.quality}
-
+                                    {option.size ? `${option.quality} - ${option.size}` : option.quality}
                                 </a>
                             </div>
                         ))}
