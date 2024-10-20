@@ -119,7 +119,7 @@ const SongPage = ({ errorcode, response }) => {
                 <article className='px-5'>
                     <h1 className={`${roboto.className} text-[23px] px-2 font-bold tracking-wider text-center mt-5 mb-5`}>{`${song?.Name} Song Download Mp3 - 120 Kbps, 320 Kbps`}</h1>
 
-                    <div className='flex justify-center text-[13px] px-4 flex-wrap items-center gap-3 mb-10 text-blue-600'>
+                    <div className='flex justify-center text-[13px] px-4 flex-wrap items-center gap-3 md:mb-10 mb-5 text-blue-600'>
                         <div className='flex items-center gap-2'>
                             <div><FaHome /></div>
                             <div><Link prefetch={false} href={`${DOMAIN}`}>Home</Link></div>
@@ -134,7 +134,7 @@ const SongPage = ({ errorcode, response }) => {
 
                     <div className='md:flex justify-center gap-20'>
 
-                        <div><img src={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} alt={`${song?.Name} song cover`} /></div>
+                        <div className='flex justify-center mb-5 md:block'><img src={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} alt={`${song?.Name} song cover`} /></div>
 
                         <div>
 

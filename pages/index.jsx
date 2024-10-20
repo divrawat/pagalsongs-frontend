@@ -74,6 +74,11 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
     router.push(`/search/${myquery}?page=1`);
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    router.push(`${DOMAIN}/?page=${page}`);
+  };
+
   const DESCRIPTION = `Read .`;
 
 
@@ -95,7 +100,7 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
   );
 
 
-  const totalPages = Math.ceil(totalCount / 50);
+  const totalPages = Math.ceil(totalCount / 200);
   const maxPagesToShow = 5;
   const pageNumbers = [];
 
@@ -161,7 +166,28 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
               ))}
             </ul>
 
-
+            <div className='flex justify-center flex-wrap items-center my-10 mx-4' id='pagination'>
+              {pageNumbers?.map((pageNum, index) => (
+                typeof pageNum === 'number' ? (
+                  <Link
+                    prefetch={false}
+                    key={index}
+                    href={`${DOMAIN}/?page=${pageNum}`}
+                    className={`${roboto2.className} mx-2 px-3 py-1.5 text-sm rounded-lg ${currentPage === pageNum ? 'bg-[#0f2a33] text-white' : 'bg-[white] hover:bg-[#0f2a33] hover:text-white text-[black]'}`}
+                    onClick={() => handlePageChange(pageNum)}
+                  >
+                    {pageNum}
+                  </Link>
+                ) : (
+                  <span
+                    key={index}
+                    className={`${roboto2.className} mx-2 px-3 py-1.5 text-sm rounded-lg text-[black]`}
+                  >
+                    {pageNum}
+                  </span>
+                )
+              ))}
+            </div>
 
           </div>
 

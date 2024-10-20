@@ -35,7 +35,7 @@ export async function getServerSideProps({ query, res }) {
 
 import Head from 'next/head';
 import { fetchSongsByCategory } from '@/actions/songs';
-import { DOMAIN, APP_NAME, NOT_FOUND_IMAGE, APP_LOGO, DOMAIN_NAME } from '@/config';
+import { DOMAIN, APP_NAME, NOT_FOUND_IMAGE, APP_LOGO, DOMAIN_NAME, R2_SUBDOMAIN } from '@/config';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
@@ -161,7 +161,7 @@ const Category = ({ errorCode, songs, category, mangas, query, totalCount }) => 
 
                             <div>{`>`}</div>
 
-                            <div><Link prefetch={false} href={`${DOMAIN}/categories/${slug}?page=${currentPage}`}>{`New ${capitalizeFirstLetter(slug)} Songs Download Mp3`}</Link></div>
+                            <div><Link prefetch={false} href={`${DOMAIN}/category/${slug}?page=${currentPage}`}>{`New ${capitalizeFirstLetter(slug)} Songs Download Mp3`}</Link></div>
                         </div>
 
                         <p className='text-center mb-3 font-bold'>{`Total Results: ${totalCount}`}</p>
@@ -176,7 +176,7 @@ const Category = ({ errorCode, songs, category, mangas, query, totalCount }) => 
 
                                         <div className='flex gap-4 my-10'>
                                             <div className='w-[150px]'>
-                                                <img src="https://www.pagalworld.com.sb/siteuploads/thumb/sft145/72358_4.jpg" height={130} width={130} alt="" />
+                                                <img src={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} height={130} width={130} alt="" />
                                             </div>
 
                                             <div className='w-[150px]'>

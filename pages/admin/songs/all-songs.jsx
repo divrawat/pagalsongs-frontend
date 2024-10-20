@@ -245,9 +245,9 @@ const Allsongs = () => {
                         className="bg-gray-800 border mb-5 text-[11.5px] border-gray-300 text-sm rounded-lg block w-full p-1.5 text-white" />
 
 
-                    <div className='text-white mb-2 text-[13px]'>Singer</div>
+                    {/* <div className='text-white mb-2 text-[13px]'>Singer</div>
                     <input type="text" required autoComplete="off" value={currentsong?.singer} onChange={handleCurrentsongChange('singer')}
-                        className="bg-gray-800 border mb-5 text-[11.5px] border-gray-300 text-sm rounded-lg block w-full p-1.5 text-white" />
+                        className="bg-gray-800 border mb-5 text-[11.5px] border-gray-300 text-sm rounded-lg block w-full p-1.5 text-white" /> */}
 
 
 
@@ -255,15 +255,15 @@ const Allsongs = () => {
                     <input type="text" required autoComplete="off" value={currentsong?.slug} onChange={handleCurrentsongChange('slug')}
                         className="bg-gray-800 text-[11.5px] border mb-5 border-gray-300 text-sm rounded-lg block w-full p-1.5 text-white" />
 
-                    <div className='text-white mb-2 text-[13px]'>Duration</div>
+                    {/* <div className='text-white mb-2 text-[13px]'>Duration</div>
                     <input type="text" required autoComplete="off" value={currentsong?.duration} onChange={handleCurrentsongChange('duration')}
                         className="bg-gray-800 text-[11.5px] border mb-5 border-gray-300 text-sm rounded-lg block w-full p-1.5 text-white" />
 
                     <div className='text-white mb-2 text-[13px]'>Size</div>
                     <input type="text" required autoComplete="off" value={currentsong?.size} onChange={handleCurrentsongChange('size')}
-                        className="bg-gray-800 text-[11.5px] border mb-5 border-gray-300 text-sm rounded-lg block w-full p-1.5 text-white" />
+                        className="bg-gray-800 text-[11.5px] border mb-5 border-gray-300 text-sm rounded-lg block w-full p-1.5 text-white" /> */}
 
-                    <div className='text-white mb-2 text-[13px]'>Music</div>
+                    {/* <div className='text-white mb-2 text-[13px]'>Music</div>
                     <input type="text" required autoComplete="off" value={currentsong?.music} onChange={handleCurrentsongChange('music')}
                         className="bg-gray-800 text-[11.5px] border mb-5 border-gray-300 text-sm rounded-lg block w-full p-1.5 text-white" />
 
@@ -278,7 +278,7 @@ const Allsongs = () => {
 
                     <div className='text-white mb-2 text-[13px]'>Categories</div>
                     <input type="text" required autoComplete="off" value={currentsong?.Categories} onChange={handleCurrentsongChange('Categories')}
-                        className="bg-gray-800 text-[11.5px] border mb-5 border-gray-300 text-sm rounded-lg block w-full p-1.5 text-white" />
+                        className="bg-gray-800 text-[11.5px] border mb-5 border-gray-300 text-sm rounded-lg block w-full p-1.5 text-white" /> */}
 
                     <div className='text-white mb-2 text-[13px]'>Downloads</div>
                     <input type="text" required autoComplete="off" value={currentsong?.downloads} onChange={handleCurrentsongChange('downloads')}
