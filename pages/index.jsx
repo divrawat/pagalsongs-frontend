@@ -163,31 +163,29 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
 
                   </Link>
                 </li>
-              ))}
+              )).slice(0, 20)}
             </ul>
 
-            <div className='flex justify-center flex-wrap items-center my-10 mx-4' id='pagination'>
+
+
+            {/* <div className='flex justify-center flex-wrap items-center my-10 mx-4' id='pagination'>
               {pageNumbers?.map((pageNum, index) => (
                 typeof pageNum === 'number' ? (
-                  <Link
-                    prefetch={false}
-                    key={index}
-                    href={`${DOMAIN}/?page=${pageNum}`}
+                  <Link prefetch={false} key={index} href={`${DOMAIN}/?page=${pageNum}`} onClick={() => handlePageChange(pageNum)}
                     className={`${roboto2.className} mx-2 px-3 py-1.5 text-sm rounded-lg ${currentPage === pageNum ? 'bg-[#0f2a33] text-white' : 'bg-[white] hover:bg-[#0f2a33] hover:text-white text-[black]'}`}
-                    onClick={() => handlePageChange(pageNum)}
                   >
                     {pageNum}
                   </Link>
                 ) : (
-                  <span
-                    key={index}
-                    className={`${roboto2.className} mx-2 px-3 py-1.5 text-sm rounded-lg text-[black]`}
-                  >
+                  <span key={index} className={`${roboto2.className} mx-2 px-3 py-1.5 text-sm rounded-lg text-[black]`}>
                     {pageNum}
                   </span>
                 )
               ))}
-            </div>
+            </div> */}
+
+
+
 
           </div>
 
