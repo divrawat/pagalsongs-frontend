@@ -20,7 +20,7 @@ export default function Navbar() {
             <div className="container mx-auto md:flex items-center justify-center md:justify-between max-w-[1250px]">
                 <div className="flex items-center md:space-x-4 justify-between">
                     <div className="flex items-center py-1">
-                        <div className="px-4"> <img src={APP_LOGO} alt={`${APP_NAME} logo`} height={25} width={25} className="rounded-full" /></div>
+                        <div className="px-4"> <img src={APP_LOGO} alt={`${APP_NAME} logo`} height={35} width={35} className="rounded-full" /></div>
                         <span className="uppercase text-lg tracking-wider text-[15px] font-extrabold md:text-[15px]"><a className={`${roboto.className}`} href={`${DOMAIN}`}>{NavbarName}</a></span>
                     </div>
                     <div className="flex gap-5 items-center">

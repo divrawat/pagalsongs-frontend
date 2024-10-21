@@ -3,6 +3,8 @@ export async function getServerSideProps({ query, res }) {
   try {
     const { page } = query;
     const data = await GetAllSongs(page);
+    // console.log(data);
+
 
     /*
     res.setHeader(
@@ -100,7 +102,7 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
   );
 
 
-  const totalPages = Math.ceil(totalCount / 200);
+  const totalPages = Math.ceil(totalCount / 100);
   const maxPagesToShow = 5;
   const pageNumbers = [];
 
@@ -163,7 +165,7 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
 
                   </Link>
                 </li>
-              )).slice(0, 20)}
+              )).slice(0, 100)}
             </ul>
 
 
