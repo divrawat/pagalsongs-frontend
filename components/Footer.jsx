@@ -23,13 +23,13 @@ export default function Footer() {
                         </p>
                     </div>
                     <ul className="md:flex md:space-x-7 text-center leading-[2.5] font-bold">
-                        {FooterLinks.map((link, index) => (
+                        {/* {FooterLinks.map((link, index) => (
                             <li key={index}>
                                 <Link prefetch={false} href={link.href} className={`${roboto.className} text-[12px] hover:text-[#a5a5f3] tracking-wider hover:underline uppercase`}>
                                     {link.text}
                                 </Link>
                             </li>
-                        ))}
+                        ))} */}
                     </ul>
 
                 </div>
