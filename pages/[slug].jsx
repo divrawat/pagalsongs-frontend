@@ -28,6 +28,9 @@ import { AiFillChrome } from "react-icons/ai";
 const roboto = Rubik({ subsets: ['latin'], weight: '800' });
 const roboto2 = Rubik({ subsets: ['latin'], weight: '600', });
 const roboto3 = Rubik({ subsets: ['latin'], weight: '300', });
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import slugify from 'slugify';
 import dynamic from 'next/dynamic';
 // const MyDynamicComp = dynamic(() => import('@/components/MyDynamicComp'), { ssr: false });
 export const runtime = 'experimental-edge';
@@ -109,6 +112,14 @@ const SongPage = ({ errorcode, response }) => {
     }
 
 
+    const router = useRouter();
+    const [query2, setQuery2] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const myquery = slugify(query2, { lower: true, remove: /[*+~.()'"!:@]/g });
+        router.push(`/search/${myquery}?page=1`);
+    };
 
     return (
         <>
@@ -117,6 +128,31 @@ const SongPage = ({ errorcode, response }) => {
 
             <main>
                 <article className='px-5'>
+
+
+                    <form className="max-w-[700px] mx-auto px-5 mt-5" onSubmit={handleSubmit}>
+                        <label htmlFor='default-search' className="mb-2 text-sm font-medium  sr-only">Search</label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg className="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                            </div>
+                            <input autoComplete='off' value={query2} onChange={(e) => setQuery2(e.target.value)} placeholder="Search for a Singer or Song ..." type="search" id="default-search" className="block w-full p-4 ps-10 text-sm border outline-none border-gray-300 rounded-lg " required />
+                            <button type="submit" className="text-white absolute end-2.5 font-bold bottom-2.5 bg-[#2683a8] hover:scale-110 transition-transform rounded-lg text-sm px-4 py-2">Search</button>
+                        </div>
+                    </form>
+
+
+
+
+
+
+
+
+
+
+
                     <h1 className={`${roboto.className} text-[23px] px-2 font-bold tracking-wider text-center mt-5 mb-5`}>{`${song?.Name} Song Download Mp3 - 120 Kbps, 320 Kbps`}</h1>
 
                     <div className='flex justify-center text-[13px] px-4 flex-wrap items-center gap-3 md:mb-10 mb-5 text-blue-600'>
@@ -223,13 +259,31 @@ const SongPage = ({ errorcode, response }) => {
 
                     </div>
 
+
+                    {
+                        song?.downloads.includes("Download Mp3 File") ? (
+                            <div className='flex justify-center my-6'>
+                                <audio src={`${R2_SUBDOMAIN}/song-audio/${song?.slug}.mp3`} preload="auto" controls></audio>
+                            </div>
+
+                        ) : (
+                            <div className='flex justify-center my-6'>
+                                <audio src={`${R2_SUBDOMAIN}/song-audio/${song?.slug}-320.mp3`} preload="auto" controls></audio>
+                            </div>
+
+                        )
+                    }
+
+
+
+
+
                     <h2 className={`${roboto.className} text-[21px] font-bold text-center mt-10`}>{`${song.Name} Song Download Links`}</h2>
 
                     <div className='flex justify-center flex-wrap gap-10 mt-10'>
                         {downloadOptions.map((option, index) => (
                             <div key={index} className='hover:scale-110 transition-transform'>
                                 <a
-                                    // href={`${R2_SUBDOMAIN}/song-audio/${song?.slug}-${option.qualityNumber}.mp3`}
                                     href={`${BACKEND_DOMAIN}/api/download/${song?.slug}/${option.qualityNumber}/${song?.Name}`}
                                     className={`${roboto2.className} bg-[#3b98bd] text-white  p-3 text-[12px] rounded-md`}>
                                     {option.size ? `${option.quality} - ${option.size}` : option.quality}

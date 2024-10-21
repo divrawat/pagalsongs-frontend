@@ -86,13 +86,13 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
 
   const head = () => (
     <Head>
-      <title>Pagal World Songs: Free MP3 Song Downloads</title>
+      <title>Pagal World Songs: Free MP3 Songs Download</title>
       <meta name="description" content={DESCRIPTION} />
       <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
       <meta name="googlebot" content="noarchive" />
       <meta name="robots" content="noarchive" />
       <link rel="canonical" href={`${DOMAIN}`} />
-      <meta property="og:title" content="Pagal World Songs: Free MP3 Song Downloads" />
+      <meta property="og:title" content="Pagal World Songs: Free MP3 Songs Download" />
       <meta property="og:description" content={DESCRIPTION} />
       <meta property="og:type" content="webiste" />
       <meta property="og:url" content={`${DOMAIN}`} />

@@ -12,4 +12,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+audio::-webkit-media-controls-play-button{
+  background-color: #2683a8;
+  border-radius: 50%;
+}
 
+audio::-webkit-media-controls-panel {
+  background-color: #56AEFF;
+}
