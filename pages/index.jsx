@@ -81,21 +81,21 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
     router.push(`${DOMAIN}/?page=${page}`);
   };
 
-  const DESCRIPTION = `Read .`;
+  const DESCRIPTION = `Pagal World brings you the ultimate music downloading experience, offering a vast collection of songs in high-quality formats. Download the latest hits and timeless classics with ease, all from your favorite genres. Enjoy seamless access to your favorite tracks anytime, anywhere`;
 
 
   const head = () => (
     <Head>
-      <title></title>
+      <title>Pagal World Songs: Free MP3 Song Downloads</title>
       <meta name="description" content={DESCRIPTION} />
       <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
       <meta name="googlebot" content="noarchive" />
       <meta name="robots" content="noarchive" />
-      <link rel="canonical" href={`${DOMAIN}/fxxfgfffffffffffffffff?page=${currentPage}`} />
-      <meta property="og:title" content="" />
+      <link rel="canonical" href={`${DOMAIN}`} />
+      <meta property="og:title" content="Pagal World Songs: Free MP3 Song Downloads" />
       <meta property="og:description" content={DESCRIPTION} />
       <meta property="og:type" content="webiste" />
-      <meta property="og:url" content="" />
+      <meta property="og:url" content={`${DOMAIN}`} />
       <meta property="og:site_name" content={`${APP_NAME}`} />
       <meta property="og:image:type" content="image/webp" />
     </Head >

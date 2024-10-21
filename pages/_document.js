@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import DOMAIN from "@/config";
+import { DOMAIN } from "@/config";
 
 export default function Document() {
   return (

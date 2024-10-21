@@ -21,7 +21,7 @@ export async function getServerSideProps({ query, res }) {
         } else {
             return {
                 props: {
-                    songs: data.songs, category: data.songs, query, totalCount: data.totalCount,
+                    songs: data.songs, query, totalCount: data.totalCount,
                 }
             };
         }
@@ -35,7 +35,7 @@ export async function getServerSideProps({ query, res }) {
 
 import Head from 'next/head';
 import { fetchSongsByCategory } from '@/actions/songs';
-import { DOMAIN, APP_NAME, NOT_FOUND_IMAGE, APP_LOGO, DOMAIN_NAME, R2_SUBDOMAIN } from '@/config';
+import { DOMAIN, APP_NAME, NOT_FOUND_IMAGE, R2_SUBDOMAIN } from '@/config';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
@@ -48,7 +48,7 @@ const roboto2 = Rubik({ subsets: ['latin'], weight: '600' });
 import slugify from 'slugify';
 export const runtime = 'experimental-edge';
 
-const Category = ({ errorCode, songs, category, mangas, query, totalCount }) => {
+const Category = ({ errorCode, songs, query, totalCount }) => {
 
     if (errorCode) {
         return (
