@@ -9,10 +9,10 @@ import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
 
-  useEffect(() => {
-    const disableRightClick = (event) => { event.preventDefault(); };
-    document.addEventListener('contextmenu', disableRightClick);
-  }, []);
+  // useEffect(() => {
+  //   const disableRightClick = (event) => { event.preventDefault(); };
+  //   document.addEventListener('contextmenu', disableRightClick);
+  // }, []);
 
 
   return (
