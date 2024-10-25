@@ -1,3 +1,4 @@
+/*
 import { SongsSitemap } from '../actions/songs';
 import { DOMAIN } from "../config";
 import fs from 'fs';
@@ -49,10 +50,10 @@ export async function getServerSideProps() {
 export default function Sitemap() {
   return null;
 }
+*/
 
 
 
-
-// export default function Sitemap() { return null; }
+export default function Sitemap() { return null; }
 
 
