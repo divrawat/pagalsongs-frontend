@@ -6,6 +6,8 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 NProgress.configure({ showSpinner: false })
 import { useEffect } from 'react';
+import MyDynamicComp from "@/components/MyDynamicComp";
+import Popup from "@/components/Popup";
 
 function MyApp({ Component, pageProps }) {
 
@@ -17,6 +19,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <MyDynamicComp>
+        <Popup />
+      </MyDynamicComp>
       <Component {...pageProps} />
     </>
   );
