@@ -10,6 +10,15 @@ export const GetAllSongs = async (page) => {
     } catch (err) { return console.log(err); }
 }
 
+export const SongsSitemap = async () => {
+    try {
+        const response = await fetch(`${BACKEND_DOMAIN}/api/songs-sitemap`, {
+            method: 'GET',
+        });
+        return await response.json();
+    } catch (err) { return console.log(err); }
+}
+
 
 export const GetAllSongsDashboard = async (page, search, token) => {
     try {
