@@ -67,14 +67,14 @@ const SongPage = ({ errorcode, response }) => {
 
     const head = () => (
         <Head>
-            <title>{`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps`}</title>
+            <title>{`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps: ${APP_NAME}`}</title>
             <meta name="description" content={DESCRIPTION} />
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
             <meta name="googlebot" content="noarchive" />
             <meta property="og:locale" content="en_US" />
             <meta property="og:type" content="article" />
             <link rel="canonical" href={`${DOMAIN}/${song?.slug}`} />
-            <meta property="og:title" content={`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps`} />
+            <meta property="og:title" content={`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps: ${APP_NAME}`} />
             <meta property="og:description" content={DESCRIPTION} />
             <meta property="og:type" content="webiste" />
             <meta property="og:url" content={`${DOMAIN}/${song?.slug}`} />

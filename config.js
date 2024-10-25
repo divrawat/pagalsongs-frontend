@@ -11,8 +11,8 @@ export const R2_SUBDOMAIN = "https://content.pagalsongs.online";
 export const DISQUS_SHORTNAME = "my-cms-7";
 
 
-export const APP_NAME = 'Pagal World Songs';
-export const NavbarName = "Pagal World Songs";
+export const APP_NAME = 'PagalWorld';
+export const NavbarName = "PagalWorld";
 
 export const APP_LOGO = `${DOMAIN}/logo.png`;
 export const NOT_FOUND_IMAGE = `${R2_SUBDOMAIN}/public/404.webp`;
