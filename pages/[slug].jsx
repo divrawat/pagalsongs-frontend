@@ -65,25 +65,6 @@ const SongPage = ({ errorcode, response }) => {
     const DESCRIPTION = `${song?.Name} song download mp3 by ${song?.singer} in 120 Kbps, 320 Kbps quality. `;
 
 
-    const head = () => (
-        <Head>
-            <title>{`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps: ${APP_NAME}`}</title>
-            <meta name="description" content={DESCRIPTION} />
-            <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
-            <meta name="googlebot" content="noarchive" />
-            <meta property="og:locale" content="en_US" />
-            <meta property="og:type" content="article" />
-            <link rel="canonical" href={`${DOMAIN}/${song?.slug}`} />
-            <meta property="og:title" content={`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps: ${APP_NAME}`} />
-            <meta property="og:description" content={DESCRIPTION} />
-            <meta property="og:type" content="webiste" />
-            <meta property="og:url" content={`${DOMAIN}/${song?.slug}`} />
-            <meta property="og:site_name" content={`${APP_NAME}`} />
-            <meta property="og:image" content={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} />
-            <meta property="og:image:secure_url" content={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} />
-            <meta property="og:image:type" content="image/webp" />
-        </Head >
-    );
 
     // let slug = song?.slug;
     // let cleanedSlug = slug.replace(/-?(download|mp3|song)-?/g, '').replace(/--/g, '-').replace(/^-|-$/g, '');
@@ -110,6 +91,46 @@ const SongPage = ({ errorcode, response }) => {
             return sizeA - sizeB;
         });
     }
+
+    const audioSchema = {
+        "@context": "https://schema.org",
+        "@type": "AudioObject",
+        "name": `${song?.Name}`,
+        "description": `${song?.Name} Song Download Mp3 For Free`,
+        "contentUrl": song?.downloads.includes("Download Mp3 File")
+            ? `${R2_SUBDOMAIN}/song-audio/${song?.slug}.mp3`
+            : `${R2_SUBDOMAIN}/song-audio/${song?.slug}-320.mp3`,
+        "duration": `${song?.duration} seconds`,
+        "encodingFormat": "mp3",
+        "inLanguage": "en",
+    };
+
+
+    const head = () => (
+        <Head>
+            <title>{`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps: ${APP_NAME}`}</title>
+            <meta name="description" content={DESCRIPTION} />
+            <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+            <meta name="googlebot" content="noarchive" />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:type" content="article" />
+            <link rel="canonical" href={`${DOMAIN}/${song?.slug}`} />
+            <meta property="og:title" content={`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps: ${APP_NAME}`} />
+            <meta property="og:description" content={DESCRIPTION} />
+            <meta property="og:type" content="webiste" />
+            <meta property="og:url" content={`${DOMAIN}/${song?.slug}`} />
+            <meta property="og:site_name" content={`${APP_NAME}`} />
+            <meta property="og:image" content={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} />
+            <meta property="og:image:secure_url" content={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} />
+            <meta property="og:image:type" content="image/webp" />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(audioSchema) }} />
+        </Head >
+    );
+
+
+
+
+
 
 
     const router = useRouter();

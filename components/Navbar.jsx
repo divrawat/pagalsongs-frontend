@@ -30,11 +30,11 @@ export default function Navbar() {
 
                 <div className="md:pb-0  md:mt-0 md:pr-4  md:bg-transparent ">
                     <ul id="menu" ref={menuRef} className="md:flex flex-wrap md:space-x-5 md:pb-0 items-center font-bold text-center hidden">
-                        {/* {navLinks.map((link, index) => (
+                        {navLinks.map((link, index) => (
                             <li key={index} className="md:pb-0 pb-3">
                                 <Link prefetch={false} href={link.href} className={`${roboto.className} hover:text-blue-300 tracking-wider text-[14px] pl-2 font-bold hover:underline`}>{link.text}</Link>
                             </li>
-                        ))} */}
+                        ))}
                     </ul>
                 </div>
             </div>

@@ -19,15 +19,15 @@ export const NOT_FOUND_IMAGE = `${R2_SUBDOMAIN}/public/404.webp`;
 export const FAVICON = `${R2_SUBDOMAIN}/public/favicon.png`;
 
 export const navLinks = [
-    { text: 'Rap', href: `${DOMAIN}/category/rap?page=1` },
-    { text: 'Hindi', href: `${DOMAIN}/category/hindi?page=1` },
-    { text: 'Punjabi', href: `${DOMAIN}/category/punjabi?page=1` },
-    { text: 'Haryanvi', href: `${DOMAIN}/category/haryanvi?page=1` },
+    // { text: 'Rap', href: `${DOMAIN}/category/rap?page=1` },
+    // { text: 'Hindi', href: `${DOMAIN}/category/hindi?page=1` },
+    // { text: 'Punjabi', href: `${DOMAIN}/category/punjabi?page=1` },
+    // { text: 'Haryanvi', href: `${DOMAIN}/category/haryanvi?page=1` },
     { text: 'Bhajan', href: `${DOMAIN}/category/bhajan?page=1` },
     { text: 'Bhakti', href: `${DOMAIN}/category/bhakti?page=1` },
-    { text: 'DJ', href: `${DOMAIN}/category/dj?page=1` },
+    // { text: 'DJ', href: `${DOMAIN}/category/dj?page=1` },
     { text: 'Lofi', href: `${DOMAIN}/category/lofi?page=1` },
-    { text: 'Mashup', href: `${DOMAIN}/category/mashup?page=1` },
+    // { text: 'Mashup', href: `${DOMAIN}/category/mashup?page=1` },
     { text: 'Remix', href: `${DOMAIN}/category/remix?page=1` },
 ];
 
