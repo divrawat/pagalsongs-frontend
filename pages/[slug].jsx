@@ -142,6 +142,31 @@ const SongPage = ({ errorcode, response }) => {
         router.push(`/search/${myquery}?page=1`);
     };
 
+
+
+
+    // Helper function to slugify individual categories
+    const slugify = (text) => {
+        return text
+            .toString()
+            .toLowerCase()
+            .replace(/\b(ringtone|ringtones|mp3|2024|2023|2022|2021|song|songs|new)\b/g, '') // Remove "ringtone" and "ringtones"
+            .trim()
+            .replace(/\s+/g, '-')
+            .replace(/[^\w-]+/g, '')
+            .replace(/--+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    };
+
+
+
+
+
+
+
+
+
+
     return (
         <>
             {head()}
@@ -199,50 +224,82 @@ const SongPage = ({ errorcode, response }) => {
                                 <table className="w-full text-sm text-left rtl:text-right  ">
 
                                     <tbody>
-                                        {/* <tr className="border-b border-t border-[#c5c1c1] ">
-                                            <th scope="row" className="px-6 py-3 font-bold  whitespace-nowrap">
-                                                Song Name
-                                            </th>
-                                            <td className="px-6 py-3">
-                                                {song?.Name}
-                                            </td>
-                                        </tr> */}
 
-                                        {song.singer && <tr className="border-b border-[#c5c1c1] ">
-                                            <th scope="row" className="px-6 py-3 font-bold  whitespace-nowrap">
-                                                Singer
-                                            </th>
-                                            <td className="px-6 py-3">
-                                                {song?.singer}
-                                            </td>
-                                        </tr>}
+                                        {song.singer && (
+                                            <tr className="border-b border-[#c5c1c1]">
+                                                <th scope="row" className="px-6 py-3 font-bold whitespace-nowrap">
+                                                    Singer
+                                                </th>
+                                                <td className="px-6 py-3 text-blue-600">
+                                                    {song.singer.split(',').map((singer, index, array) => (
+                                                        <span key={index}>
+                                                            <Link href={`${DOMAIN}/search/${slugify(singer)}?page=1`}>
+                                                                {singer.trim()}
+                                                            </Link>
+                                                            {index < array.length - 1 && ', '}
+                                                        </span>
+                                                    ))}
+                                                </td>
+                                            </tr>
+                                        )}
 
-                                        {song.lyrics && <tr className="border-b border-[#c5c1c1] ">
-                                            <th scope="row" className="px-6 py-3 font-bold  whitespace-nowrap ">
-                                                Lyrics
-                                            </th>
-                                            <td className="px-6 py-3">
-                                                {song?.lyrics}
-                                            </td>
-                                        </tr>}
 
-                                        {song.music && <tr className="border-b border-[#c5c1c1] ">
-                                            <th scope="row" className="px-6 py-3 font-bold  whitespace-nowrap ">
-                                                Music
-                                            </th>
-                                            <td className="px-6 py-3">
-                                                {song?.music}
-                                            </td>
-                                        </tr>}
 
-                                        {song.label && <tr className="border-b border-[#c5c1c1] ">
-                                            <th scope="row" className="px-6 py-3 font-bold  whitespace-nowrap">
-                                                Label
-                                            </th>
-                                            <td className="px-6 py-3">
-                                                {song?.label}
-                                            </td>
-                                        </tr>}
+
+                                        {song.lyrics && (
+                                            <tr className="border-b border-[#c5c1c1]">
+                                                <th scope="row" className="px-6 py-3 font-bold whitespace-nowrap">
+                                                    Lyrics
+                                                </th>
+                                                <td className="px-6 py-3 text-blue-600">
+                                                    {song.lyrics.split(',').map((lyricist, index, array) => (
+                                                        <span key={index}>
+                                                            <Link href={`${DOMAIN}/search/${slugify(lyricist)}?page=1`}>
+                                                                {lyricist.trim()}
+                                                            </Link>
+                                                            {index < array.length - 1 && ', '}
+                                                        </span>
+                                                    ))}
+                                                </td>
+                                            </tr>
+                                        )}
+
+                                        {song.music && (
+                                            <tr className="border-b border-[#c5c1c1]">
+                                                <th scope="row" className="px-6 py-3 font-bold whitespace-nowrap">
+                                                    Music
+                                                </th>
+                                                <td className="px-6 py-3 text-blue-600">
+                                                    {song.music.split(',').map((musician, index, array) => (
+                                                        <span key={index}>
+                                                            <Link href={`${DOMAIN}/search/${slugify(musician)}?page=1`}>
+                                                                {musician.trim()}
+                                                            </Link>
+                                                            {index < array.length - 1 && ', '}
+                                                        </span>
+                                                    ))}
+                                                </td>
+                                            </tr>
+                                        )}
+
+                                        {song.label && (
+                                            <tr className="border-b border-[#c5c1c1]">
+                                                <th scope="row" className="px-6 py-3 font-bold whitespace-nowrap">
+                                                    Label
+                                                </th>
+                                                <td className="px-6 py-3 text-blue-600">
+                                                    {song.label.split(',').map((label, index, array) => (
+                                                        <span key={index}>
+                                                            <Link href={`${DOMAIN}/search/${slugify(label)}?page=1`}>
+                                                                {label.trim()}
+                                                            </Link>
+                                                            {index < array.length - 1 && ', '}
+                                                        </span>
+                                                    ))}
+                                                </td>
+                                            </tr>
+                                        )}
+
 
 
                                         {song.duration && <tr className="border-b border-[#c5c1c1] ">
@@ -263,14 +320,24 @@ const SongPage = ({ errorcode, response }) => {
                                             </td>
                                         </tr>}
 
-                                        {song.Categories && <tr className="border-b border-[#c5c1c1] ">
-                                            <th scope="row" className="px-6 py-3 font-bold  whitespace-nowrap">
-                                                Category
-                                            </th>
-                                            <td className="px-6 py-3">
-                                                {song?.Categories}
-                                            </td>
-                                        </tr>}
+                                        {song.Categories && (
+                                            <tr className="border-b border-[#c5c1c1] ">
+                                                <th scope="row" className="px-6 py-3 font-bold whitespace-nowrap">
+                                                    Category
+                                                </th>
+                                                <td className="px-6 py-3 text-blue-600">
+                                                    {song.Categories.split(',').map((category, index, array) => (
+                                                        <span key={index}>
+                                                            <Link href={`${DOMAIN}/search/${slugify(category)}?page=1`}>
+                                                                {category.trim()}
+                                                            </Link>
+                                                            {index < array.length - 1 && ', '}
+                                                        </span>
+                                                    ))}
+                                                </td>
+                                            </tr>
+                                        )}
+
 
                                     </tbody>
                                 </table>
