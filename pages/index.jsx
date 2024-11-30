@@ -139,7 +139,7 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
 
 
             <h1 className={`${roboto.className}  text-3xl font-semibold mb-3 mt-5 text-center`}>All Songs</h1>
-            <p className='text-center mb-3 font-bold'>{`Total Songs: ${totalCount}`}</p>
+            {/* <p className='text-center mb-3 font-bold'>{`Total Songs: ${totalCount}`}</p> */}
             {/* <p className='text-center font-bold mb-8'>{`Page ${currentPage}`}</p> */}
 
             <ul className='flex justify-center gap-5 flex-wrap'>
