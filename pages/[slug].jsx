@@ -96,7 +96,7 @@ const SongPage = ({ errorcode, response }) => {
         "@context": "https://schema.org",
         "@type": "AudioObject",
         "name": `${song?.Name}`,
-        "description": `${song?.Name} Song Download Mp3 For Free`,
+        "description": `${song?.Name} Song Download Mp3 PaagalWorld`,
         "contentUrl": song?.downloads.includes("Download Mp3 File")
             ? `${R2_SUBDOMAIN}/song-audio/${song?.slug}.mp3`
             : `${R2_SUBDOMAIN}/song-audio/${song?.slug}-320.mp3`,
@@ -108,17 +108,17 @@ const SongPage = ({ errorcode, response }) => {
 
     const head = () => (
         <Head>
-            <title>{`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps: ${APP_NAME}`}</title>
+            <title>{`${song?.Name} Song Download Mp3 PaagalWorld`}</title>
             <meta name="description" content={DESCRIPTION} />
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
             <meta name="googlebot" content="noarchive" />
             <meta property="og:locale" content="en_US" />
             <meta property="og:type" content="article" />
-            <link rel="canonical" href={`${DOMAIN}/${song?.slug}`} />
-            <meta property="og:title" content={`${song?.Name} Song Download Mp3 120 Kbps, 320 Kbps: ${APP_NAME}`} />
+            {/* <link rel="canonical" href={`${DOMAIN}/${song?.slug}/`} /> */}
+            <meta property="og:title" content={`${song?.Name} Song Download Mp3 PaagalWorld`} />
             <meta property="og:description" content={DESCRIPTION} />
             <meta property="og:type" content="webiste" />
-            <meta property="og:url" content={`${DOMAIN}/${song?.slug}`} />
+            <meta property="og:url" content={`${DOMAIN}/${song?.slug}/`} />
             <meta property="og:site_name" content={`${APP_NAME}`} />
             <meta property="og:image" content={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} />
             <meta property="og:image:secure_url" content={`${R2_SUBDOMAIN}/song-images/${song?.slug}.webp`} />
@@ -199,7 +199,7 @@ const SongPage = ({ errorcode, response }) => {
 
 
 
-                    <h1 className={`${roboto.className} text-[23px] px-2 font-bold tracking-wider text-center mt-5 mb-5`}>{`${song?.Name} Song Download Mp3 - 120 Kbps, 320 Kbps`}</h1>
+                    <h1 className={`${roboto.className} text-[23px] px-2 font-bold tracking-wider text-center mt-5 mb-5`}>{`${song?.Name} Song Download Mp3 PaagalWorld`}</h1>
 
                     <div className='flex justify-center text-[13px] px-4 flex-wrap items-center gap-3 md:mb-10 mb-5 text-blue-600'>
                         <div className='flex items-center gap-2'>
@@ -209,7 +209,7 @@ const SongPage = ({ errorcode, response }) => {
                         <div>{`>`}</div>
                         <div className='flex items-center gap-2'>
                             <div><AiFillChrome /></div>
-                            <div><Link prefetch={false} href={`${DOMAIN}/${song?.slug}`}>{`${song?.Name} Song Download`}</Link></div>
+                            <div><Link prefetch={false} href={`${DOMAIN}/${song?.slug}/`}>{`${song?.Name} Song Download`}</Link></div>
                         </div>
                     </div>
 

@@ -96,7 +96,7 @@ const Category = ({ errorCode, songs, query, totalCount }) => {
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
             <meta name="googlebot" content="noarchive" />
             <meta name="robots" content="noarchive" />
-            <link rel="canonical" href={`${DOMAIN}/category/${slug}?page=${currentPage}`} />
+            {/* <link rel="canonical" href={`${DOMAIN}/category/${slug}?page=${currentPage}`} /> */}
             <meta property="og:title" content={`New ${capitalizeFirstLetter(slug)} Songs Downlaod Mp3 Page ${currentPage}`} />
             <meta property="og:description" content={DESCRIPTION} />
             <meta property="og:type" content="webiste" />
@@ -172,7 +172,7 @@ const Category = ({ errorCode, songs, query, totalCount }) => {
                             {songs?.map((song, index) => (
 
                                 <li className="hover:scale-110 transition-transform rounded w-[300px] " key={index}>
-                                    <Link prefetch={false} href={`${DOMAIN}/${song?.slug}`}>
+                                    <Link prefetch={false} href={`${DOMAIN}/${song?.slug}/`}>
 
                                         <div className='flex gap-4 my-10'>
                                             <div className='w-[150px]'>

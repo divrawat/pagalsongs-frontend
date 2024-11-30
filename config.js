@@ -1,18 +1,18 @@
 // export const DOMAIN = 'http://localhost:3000';
 // export const BACKEND_DOMAIN = 'http://localhost:8000';
 
-export const DOMAIN = 'https://www.pagalsongs.online';
+export const DOMAIN = 'https://www.paagalworld.in.net';
 export const BACKEND_DOMAIN = 'https://pagalsongs-backend.vercel.app'
 
 
 
-export const DOMAIN_NAME = 'pagalsongs.online';
+export const DOMAIN_NAME = 'paagalworld.in.net';
 export const R2_SUBDOMAIN = "https://content.pagalsongs.online";
 export const DISQUS_SHORTNAME = "my-cms-7";
 
 
-export const APP_NAME = 'PagalWorld';
-export const NavbarName = "PagalWorld";
+export const APP_NAME = 'PaagalWorld';
+export const NavbarName = "PaagalWorld";
 
 export const APP_LOGO = `${DOMAIN}/logo.png`;
 export const NOT_FOUND_IMAGE = `${R2_SUBDOMAIN}/public/404.webp`;
@@ -26,9 +26,9 @@ export const navLinks = [
     { text: 'Bhajan', href: `${DOMAIN}/category/bhajan?page=1` },
     { text: 'Bhakti', href: `${DOMAIN}/category/bhakti?page=1` },
     // { text: 'DJ', href: `${DOMAIN}/category/dj?page=1` },
-    { text: 'Lofi', href: `${DOMAIN}/category/lofi?page=1` },
+    // { text: 'Lofi', href: `${DOMAIN}/category/lofi?page=1` },
     // { text: 'Mashup', href: `${DOMAIN}/category/mashup?page=1` },
-    { text: 'Remix', href: `${DOMAIN}/category/remix?page=1` },
+    // { text: 'Remix', href: `${DOMAIN}/category/remix?page=1` },
 ];
 
 export const FooterLinks = [

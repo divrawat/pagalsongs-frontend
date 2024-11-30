@@ -64,7 +64,7 @@ const SearchPage = ({ songs, totalCount, page, errorCode, query }) => {
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
             <meta name="googlebot" content="noarchive" />
             <meta name="robots" content="noarchive" />
-            <link rel="canonical" href={`${DOMAIN}/search/${slug}?page=${page}`} />
+            {/* <link rel="canonical" href={`${DOMAIN}/search/${slug}?page=${page}`} /> */}
             <meta property="og:title" content={`New ${capitalizedQuery} Songs Downlaod Mp3 Page ${page}`} />
             <meta property="og:description" content={DESCRIPTION} />
             <meta property="og:type" content="webiste" />
@@ -145,7 +145,7 @@ const SearchPage = ({ songs, totalCount, page, errorCode, query }) => {
                     {songs?.map((song, index) => (
 
                         <li className="hover:scale-110 transition-transform rounded w-[300px] " key={index}>
-                            <Link prefetch={false} href={`${DOMAIN}/${song?.slug}`}>
+                            <Link prefetch={false} href={`${DOMAIN}/${song?.slug}/`}>
 
                                 <div className='flex gap-3 my-10'>
                                     <div className='w-[150px]'>

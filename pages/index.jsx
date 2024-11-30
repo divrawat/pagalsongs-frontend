@@ -81,18 +81,18 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
     router.push(`${DOMAIN}/?page=${page}`);
   };
 
-  const DESCRIPTION = `Pagal World brings you the ultimate music downloading experience, offering a vast collection of songs in high-quality formats. Download the latest hits and timeless classics with ease, all from your favorite genres. Enjoy seamless access to your favorite tracks anytime, anywhere`;
+  const DESCRIPTION = `PagalWorld brings you the ultimate music downloading experience, offering a vast collection of songs in high-quality formats. Download the latest hits and timeless classics with ease, all from your favorite genres. Enjoy seamless access to your favorite tracks anytime, anywhere`;
 
 
   const head = () => (
     <Head>
-      <title>Pagal World Songs: Free MP3 Songs Download</title>
+      <title>PagalWorld: Free MP3 Songs</title>
       <meta name="description" content={DESCRIPTION} />
       <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
       <meta name="googlebot" content="noarchive" />
       <meta name="robots" content="noarchive" />
-      <link rel="canonical" href={`${DOMAIN}`} />
-      <meta property="og:title" content="Pagal World Songs: Free MP3 Songs Download" />
+      {/* <link rel="canonical" href={`${DOMAIN}`} /> */}
+      <meta property="og:title" content="PagalWorld: Free MP3 Songs" />
       <meta property="og:description" content={DESCRIPTION} />
       <meta property="og:type" content="webiste" />
       <meta property="og:url" content={`${DOMAIN}`} />
@@ -146,7 +146,7 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
               {songs?.map((song, index) => (
 
                 <li className="hover:scale-110 transition-transform rounded w-[300px] " key={index}>
-                  <Link prefetch={false} href={`${DOMAIN}/${song?.slug}`}>
+                  <Link prefetch={false} href={`${DOMAIN}/${song?.slug}/`}>
 
                     <div className='flex gap-3 my-10'>
                       <div className='w-[150px]'>
@@ -165,7 +165,7 @@ const Index = ({ errorCode, songs, query, totalCount }) => {
 
                   </Link>
                 </li>
-              )).slice(0, 100)}
+              )).slice(0, 2)}
             </ul>
 
 
