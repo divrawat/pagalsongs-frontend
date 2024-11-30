@@ -7,6 +7,7 @@ import { FaTelegram } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 const roboto = Rubik({ subsets: ['latin'], weight: '700' });
 const roboto2 = Rubik({ subsets: ['latin'], weight: '500' });
+import { DOMAIN } from '@/config';
 
 export default function Popup() {
 
@@ -46,7 +47,7 @@ export default function Popup() {
                 </div>
 
 
-                <div className='flex justify-center'><img src="https://www.pagalsongs.online/logo.png" height={100} width={100} className="rounded-full" alt="" /></div>
+                <div className='flex justify-center'><img src={`${DOMAIN}/logo.png`} height={100} width={100} className="rounded-full" alt="" /></div>
 
 
                 <p className={`${roboto2.className} max-w-[300px] mx-auto my-3 text-center`}>Join our Telegram Channel for Latest Songs</p>
